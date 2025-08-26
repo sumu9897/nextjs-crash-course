@@ -45,6 +45,18 @@ export default function Navbar() {
           >
             Users
           </Link>
+          <Link
+            href="/posts"
+            className="hover:text-blue-400 transition-colors duration-300"
+          >
+            Posts
+          </Link>
+          <Link
+            href="/todos"
+            className="hover:text-blue-400 transition-colors duration-300"
+          >
+            Todos
+          </Link>
         </div>
       </div>
     </nav>
