@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 async function fetchPost(id: string) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) return null;
@@ -30,12 +32,12 @@ export default async function PostPage({
         <p className="text-gray-700 leading-relaxed">{post.body}</p>
 
         <div className="mt-8">
-          <a
+          <Link
             href="/posts"
             className="inline-block px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
           >
             ← Back to Posts
-          </a>
+          </Link>
         </div>
       </div>
     </div>

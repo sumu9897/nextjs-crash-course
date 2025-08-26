@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 async function fetchTodo(id: string) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
   if (!res.ok) return null;
@@ -43,12 +45,12 @@ export default async function TodoPage({
         </span>
 
         <div className="mt-8">
-          <a
+          <Link
             href="/todos"
             className="inline-block px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
           >
             ← Back to Todos
-          </a>
+          </Link>
         </div>
       </div>
     </div>

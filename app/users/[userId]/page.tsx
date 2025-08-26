@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 async function fetchUser(id: string) {
@@ -58,12 +59,12 @@ export default async function UserPage({params}: {params: Promise<{userId: strin
         </div>
 
         <div className="mt-10">
-          <a
+          <Link
             href="/users"
             className="inline-block px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
           >
             ← Back to Users
-          </a>
+          </Link>
         </div>
       </div>
     </div>
