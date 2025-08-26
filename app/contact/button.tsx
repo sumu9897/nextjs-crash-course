@@ -12,27 +12,25 @@ export default function ButtonComponent() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="bg-white shadow-lg rounded-2xl p-6 text-center max-w-md">
-        <h1 className="text-xl font-semibold mb-4">Contact Me</h1>
-        <p className="text-gray-700 mb-4">
-          You can reach me via email at:
-        </p>
-        <p className="font-medium text-blue-600 mb-6">{email}</p>
-        
-        <button
-          onClick={handleClick}
-          className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-        >
-          Copy Email
-        </button>
+    <div className="bg-white shadow-lg rounded-2xl p-6 text-center max-w-md w-full">
+      <h2 className="text-xl font-semibold mb-3">Get in Touch</h2>
+      <p className="text-gray-700 mb-4">
+        You can reach me directly at:
+      </p>
+      <p className="font-medium text-blue-600 mb-6">{email}</p>
 
-        {copied && (
-          <p className="mt-3 text-green-600 font-medium">
-            ✅ Email copied to clipboard!
-          </p>
-        )}
-      </div>
+      <button
+        onClick={handleClick}
+        className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+      >
+        {copied ? "Copied!" : "Copy Email"}
+      </button>
+
+      {copied && (
+        <p className="mt-3 text-green-600 font-medium">
+          ✅ Email copied to clipboard!
+        </p>
+      )}
     </div>
   );
 }
