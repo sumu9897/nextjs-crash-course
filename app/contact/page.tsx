@@ -2,10 +2,7 @@
 import ButtonComponent from "./button";
 
 export default async function Contact() {
-  // Fetching posts just as a demo (not displayed yet)
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await response.json();
-  console.log(posts);
+
 
   return (
     <div className="bg-gray-50 min-h-screen py-16 px-6">

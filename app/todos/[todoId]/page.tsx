@@ -7,9 +7,10 @@ async function fetchTodo(id: string) {
 export default async function TodoPage({
   params,
 }: {
-  params: { todoId: string };
+  params: Promise<{ todoId: string }>;
 }) {
-  const todo = await fetchTodo(params.todoId);
+  const { todoId } = await params;
+  const todo = await fetchTodo(todoId);
 
   if (!todo) {
     return (

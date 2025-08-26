@@ -6,12 +6,10 @@ async function fetchUser(id: string) {
   return res.json();
 }
 
-export default async function UserPage({
-  params,
-}: {
-  params: { userId: string };
-}) {
-  const user = await fetchUser(params.userId);
+export default async function UserPage({params}: {params: Promise<{userId: string}>})
+{
+  const { userId } = await params;
+  const user = await fetchUser(userId);
 
   if (!user) {
     notFound();
@@ -21,12 +19,9 @@ export default async function UserPage({
     <div className="bg-gray-50 min-h-screen py-16 px-6">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
         <div className="flex items-center space-x-6">
-          {/* Avatar Placeholder */}
           <div className="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center text-2xl font-bold text-indigo-600">
             {user.name.charAt(0)}
           </div>
-
-          {/* User Info */}
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
               {user.name}
@@ -35,7 +30,6 @@ export default async function UserPage({
           </div>
         </div>
 
-        {/* Contact Info */}
         <div className="mt-8 space-y-3">
           <p className="text-gray-700">
             <span className="font-semibold">📧 Email:</span> {user.email}
@@ -58,11 +52,11 @@ export default async function UserPage({
             {user.address.street}, {user.address.city}
           </p>
           <p className="text-gray-700">
-            <span className="font-semibold">🏢 Company:</span> {user.company.name}
+            <span className="font-semibold">🏢 Company:</span>{" "}
+            {user.company.name}
           </p>
         </div>
 
-        {/* Back Button */}
         <div className="mt-10">
           <a
             href="/users"

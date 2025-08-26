@@ -7,9 +7,10 @@ async function fetchPost(id: string) {
 export default async function PostPage({
   params,
 }: {
-  params: { postId: string };
+  params: Promise<{ postId: string }>;
 }) {
-  const post = await fetchPost(params.postId);
+  const { postId } = await params;
+  const post = await fetchPost(postId);
 
   if (!post) {
     return (
